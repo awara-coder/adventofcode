@@ -1,7 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	fmt.Println("Advent of code 2025 Go solutions!")
+
+	// Call solver functions
+	day1Solution()
 }
