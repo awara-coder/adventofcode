@@ -8,5 +8,5 @@ func main() {
 	fmt.Println("Advent of code 2025 Go solutions!")
 
 	// Call solver functions
-	day2Solution()
+	day3Solution()
 }
