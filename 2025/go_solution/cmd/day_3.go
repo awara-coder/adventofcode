@@ -28,7 +28,7 @@ func day3Solution() {
 		utils.GetLogger().Fatalf("Error when solving day 3 problem %w", err)
 	}
 
-	fmt.Println("Output for day 2 problem", output)
+	fmt.Println("Output for day 3 problem: ", output)
 }
 
 func solveDay3(banks []string) (int64, error) {

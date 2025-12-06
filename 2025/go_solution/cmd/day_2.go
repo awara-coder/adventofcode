@@ -28,7 +28,7 @@ func day2Solution() {
 		utils.GetLogger().Fatalf("Error when solving day 2 problem %w", err)
 	}
 
-	fmt.Println("Output for day 2 problem", output)
+	fmt.Println("Output for day 2 problem: ", output)
 }
 
 func solveDay2(input string) (int64, error) {
