@@ -19,13 +19,14 @@ var daySolverFunctionMapping map[int]DailyChallengeSolverFunction = map[int]Dail
 	4: aoc.SolveDay4,
 	5: aoc.SolveDay5,
 	6: aoc.SolveDay6,
+	7: aoc.SolveDay7,
 }
 
 func main() {
 	fmt.Println("Advent of code 2025 Go solutions!")
 
 	// Call solver functions
-	dayNSolution(6, CHALLENGE_INPUT_FILE_NAME)
+	dayNSolution(7, CHALLENGE_INPUT_FILE_NAME)
 }
 
 func dayNSolution(day int, fileName string) {
