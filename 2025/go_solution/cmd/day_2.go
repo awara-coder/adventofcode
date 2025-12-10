@@ -1,40 +1,16 @@
 package main
 
 import (
-	"fmt"
 	"strconv"
 	"strings"
 
 	"github.com/awara-coder/adventofcode/tree/main/2025/go_solution/utils"
 )
 
-// Input file path
-const day2InputFilePath = "day_2/input.input"
-
-// const day2InputFilePath = "day_2/sample_input"
-
-func day2Solution() {
-	// Read file contents
-	lines, err := utils.ReadFileContents(day2InputFilePath)
-	if err != nil {
-		utils.GetLogger().Fatalf("Error while reading contents of input file for day 2 problem, %v", err)
-	}
-
-	utils.GetLogger().Println("Starting solver for day 2")
-	output, err := solveDay2(lines[0])
-	utils.GetLogger().Println("Complted solver for day 2")
-
-	if err != nil {
-		utils.GetLogger().Fatalf("Error when solving day 2 problem %w", err)
-	}
-
-	fmt.Println("Output for day 2 problem: ", output)
-}
-
-func solveDay2(input string) (int64, error) {
+func solveDay2(input []string) (int64, error) {
 	invalidIDSum := int64(0)
 
-	ranges := strings.Split(input, ",")
+	ranges := strings.Split(input[0], ",")
 
 	for _, currentRange := range ranges {
 		// Parse the range

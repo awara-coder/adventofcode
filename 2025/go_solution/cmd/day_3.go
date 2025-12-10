@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"math"
 	"strconv"
 
@@ -10,26 +9,6 @@ import (
 
 // Input file path
 // const day3InputFilePath = "day_3/sample_input"
-
-const day3InputFilePath = "day_3/input.input"
-
-func day3Solution() {
-	// Read file contents
-	lines, err := utils.ReadFileContents(day3InputFilePath)
-	if err != nil {
-		utils.GetLogger().Fatalf("Error while reading contents of input file for day 3 problem, %v", err)
-	}
-
-	utils.GetLogger().Println("Starting solver for day 3")
-	output, err := solveDay3(lines)
-	utils.GetLogger().Println("Complted solver for day 3")
-
-	if err != nil {
-		utils.GetLogger().Fatalf("Error when solving day 3 problem %w", err)
-	}
-
-	fmt.Println("Output for day 3 problem: ", output)
-}
 
 func solveDay3(banks []string) (int64, error) {
 	// Iterate through each bank and find the max battery joltage

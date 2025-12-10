@@ -1,35 +1,11 @@
 package main
 
 import (
-	"fmt"
 	"strconv"
 	"strings"
 
 	"github.com/awara-coder/adventofcode/tree/main/2025/go_solution/utils"
 )
-
-// Input file path
-// const day6InputFilePath = "day_6/sample_input"
-
-const day6InputFilePath = "day_6/input.input"
-
-func day6Solution() {
-	// Read file contents
-	lines, err := utils.ReadFileContents(day6InputFilePath)
-	if err != nil {
-		utils.GetLogger().Fatalf("Error while reading contents of input file for day 6 problem, %v", err)
-	}
-
-	utils.GetLogger().Println("Starting solver for day 6")
-	output, err := solveDay6(lines)
-	utils.GetLogger().Println("Complted solver for day 6")
-
-	if err != nil {
-		utils.GetLogger().Fatalf("Error when solving day 6 problem %w", err)
-	}
-
-	fmt.Println("Output for day 6 problem: ", output)
-}
 
 func parseDay6Part1Input(lines []string) ([][]int64, []string) {
 	operands := make([][]int64, 0)

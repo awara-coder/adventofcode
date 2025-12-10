@@ -1,34 +1,5 @@
 package main
 
-import (
-	"fmt"
-
-	"github.com/awara-coder/adventofcode/tree/main/2025/go_solution/utils"
-)
-
-// Input file path
-// const day4InputFilePath = "day_4/sample_input"
-
-const day4InputFilePath = "day_4/input.input"
-
-func day4Solution() {
-	// Read file contents
-	lines, err := utils.ReadFileContents(day4InputFilePath)
-	if err != nil {
-		utils.GetLogger().Fatalf("Error while reading contents of input file for day 4 problem, %v", err)
-	}
-
-	utils.GetLogger().Println("Starting solver for day 4")
-	output, err := solveDay4(lines)
-	utils.GetLogger().Println("Complted solver for day 4")
-
-	if err != nil {
-		utils.GetLogger().Fatalf("Error when solving day 4 problem %w", err)
-	}
-
-	fmt.Println("Output for day 4 problem: ", output)
-}
-
 func solveDay4(grid []string) (int64, error) {
 	// accessibleRolls := solveDay4Part1(grid)
 	accessibleRolls := solveDay4Part2(grid)
