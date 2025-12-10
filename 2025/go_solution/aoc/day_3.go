@@ -1,4 +1,4 @@
-package main
+package aoc
 
 import (
 	"math"
@@ -7,10 +7,7 @@ import (
 	"github.com/awara-coder/adventofcode/tree/main/2025/go_solution/utils"
 )
 
-// Input file path
-// const day3InputFilePath = "day_3/sample_input"
-
-func solveDay3(banks []string) (int64, error) {
+func SolveDay3(banks []string) (int64, error) {
 	// Iterate through each bank and find the max battery joltage
 	totalJoltage := int64(0)
 

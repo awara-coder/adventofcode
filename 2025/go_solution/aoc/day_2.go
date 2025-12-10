@@ -1,4 +1,4 @@
-package main
+package aoc
 
 import (
 	"strconv"
@@ -7,7 +7,7 @@ import (
 	"github.com/awara-coder/adventofcode/tree/main/2025/go_solution/utils"
 )
 
-func solveDay2(input []string) (int64, error) {
+func SolveDay2(input []string) (int64, error) {
 	invalidIDSum := int64(0)
 
 	ranges := strings.Split(input[0], ",")

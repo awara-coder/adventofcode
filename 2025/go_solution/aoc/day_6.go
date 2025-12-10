@@ -1,4 +1,4 @@
-package main
+package aoc
 
 import (
 	"strconv"
@@ -6,6 +6,21 @@ import (
 
 	"github.com/awara-coder/adventofcode/tree/main/2025/go_solution/utils"
 )
+
+func SolveDay6(lines []string) (int64, error) {
+	// Parse the input.
+	// operands, operators := parseDay6Part1Input(lines)
+	operands, operators := parseDay6Part2Input(lines)
+
+	// Assert input
+	if len(operands) != len(operators) {
+		utils.GetLogger().Fatal("operator and operand lenghts are not matching")
+	}
+
+	// Call solver function
+	totalSum := solveDay6Expression(operands, operators)
+	return totalSum, nil
+}
 
 func parseDay6Part1Input(lines []string) ([][]int64, []string) {
 	operands := make([][]int64, 0)
@@ -147,21 +162,6 @@ func splitBySpace(line string) []string {
 
 	return finalResult
 
-}
-
-func solveDay6(lines []string) (int64, error) {
-	// Parse the input.
-	// operands, operators := parseDay6Part1Input(lines)
-	operands, operators := parseDay6Part2Input(lines)
-
-	// Assert input
-	if len(operands) != len(operators) {
-		utils.GetLogger().Fatal("operator and operand lenghts are not matching")
-	}
-
-	// Call solver function
-	totalSum := solveDay6Expression(operands, operators)
-	return totalSum, nil
 }
 
 func solveDay6Expression(operands [][]int64, operators []string) int64 {

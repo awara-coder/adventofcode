@@ -1,6 +1,6 @@
-package main
+package aoc
 
-func solveDay4(grid []string) (int64, error) {
+func SolveDay4(grid []string) (int64, error) {
 	// accessibleRolls := solveDay4Part1(grid)
 	accessibleRolls := solveDay4Part2(grid)
 	return accessibleRolls, nil

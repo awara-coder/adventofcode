@@ -1,4 +1,4 @@
-package main
+package aoc
 
 import (
 	"strconv"
@@ -7,7 +7,7 @@ import (
 	"github.com/awara-coder/adventofcode/tree/main/2025/go_solution/utils"
 )
 
-func solveDay1(commands []string) (int64, error) {
+func SolveDay1(commands []string) (int64, error) {
 	var zeroesCounter int64 = 0
 	var currentDialPosition int64 = 50
 

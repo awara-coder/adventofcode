@@ -1,4 +1,4 @@
-package main
+package aoc
 
 import (
 	"slices"
@@ -7,6 +7,16 @@ import (
 
 	"github.com/awara-coder/adventofcode/tree/main/2025/go_solution/utils"
 )
+
+func SolveDay5(lines []string) (int64, error) {
+	// Parse the input.
+	ranges, _ := parseDay5Input(lines)
+
+	// Call solver function
+	// freshIngridients := solveDay5Part1(ranges, queries)
+	freshIngridients := solveDay5Part2(ranges)
+	return freshIngridients, nil
+}
 
 func parseDay5Input(lines []string) ([][]int64, []int64) {
 	ranges := make([][]int64, 0)
@@ -46,16 +56,6 @@ func parseDay5Input(lines []string) ([][]int64, []int64) {
 	}
 
 	return ranges, queries
-}
-
-func solveDay5(lines []string) (int64, error) {
-	// Parse the input.
-	ranges, _ := parseDay5Input(lines)
-
-	// Call solver function
-	// freshIngridients := solveDay5Part1(ranges, queries)
-	freshIngridients := solveDay5Part2(ranges)
-	return freshIngridients, nil
 }
 
 func sortAndMergeIngridientRanges(ranges [][]int64) [][]int64 {

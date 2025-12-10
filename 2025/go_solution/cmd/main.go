@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	"github.com/awara-coder/adventofcode/tree/main/2025/go_solution/aoc"
 	"github.com/awara-coder/adventofcode/tree/main/2025/go_solution/utils"
 )
 
@@ -12,12 +13,12 @@ const CHALLENGE_INPUT_FILE_NAME = "input.input"
 type DailyChallengeSolverFunction func([]string) (int64, error)
 
 var daySolverFunctionMapping map[int]DailyChallengeSolverFunction = map[int]DailyChallengeSolverFunction{
-	1: solveDay1,
-	2: solveDay2,
-	3: solveDay3,
-	4: solveDay4,
-	5: solveDay5,
-	6: solveDay6,
+	1: aoc.SolveDay1,
+	2: aoc.SolveDay2,
+	3: aoc.SolveDay3,
+	4: aoc.SolveDay4,
+	5: aoc.SolveDay5,
+	6: aoc.SolveDay6,
 }
 
 func main() {
