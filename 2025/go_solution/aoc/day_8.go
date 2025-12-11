@@ -26,9 +26,6 @@ func SolveDay8(junctionBoxPositions []string) (int64, error) {
 		utils.GetLogger().Fatalf("error while parsing junctin boxes input: %v", err)
 	}
 
-	// Create circuit, and represent it using DSU data structure.
-	circuit := datastructures.NewDSU(len(junctionBoxes))
-
 	// Find the pair of shortest distance junction boxes
 	// Each entry stores a tuple of ID1, ID2, distance_between_them_squared
 	shortestDistanceJunctionBoxPairs := make([][]int64, 0)
@@ -43,12 +40,20 @@ func SolveDay8(junctionBoxPositions []string) (int64, error) {
 		return int(a[2] - b[2])
 	})
 
-	// Iterate over them add keep joining the junction boxes into circuits
+	// Iterate over them and keep joining the junction boxes into circuits
+	// return solveDay8Part1(junctionBoxes, shortestDistanceJunctionBoxPairs)
+
+	return solveDay8Part2(junctionBoxes, shortestDistanceJunctionBoxPairs)
+}
+
+func solveDay8Part1(junctionBoxes []JunctionBox, shortestDistanceJunctionBoxPairs [][]int64) (int64, error) {
 	circuitsToJoin := 10
 	// challenge input case.
 	if len(junctionBoxes) > 20 {
 		circuitsToJoin = 1000
 	}
+	// Create circuit, and represent it using DSU data structure.
+	circuit := datastructures.NewDSU(len(junctionBoxes))
 	for i := range circuitsToJoin {
 		// Join both pairs
 		circuit.Add(int(shortestDistanceJunctionBoxPairs[i][0]), int(shortestDistanceJunctionBoxPairs[i][1]))
@@ -69,6 +74,22 @@ func SolveDay8(junctionBoxPositions []string) (int64, error) {
 	}
 
 	return topThree[0] * topThree[1] * topThree[2], nil
+}
+
+func solveDay8Part2(junctionBoxes []JunctionBox, shortestDistanceJunctionBoxPairs [][]int64) (int64, error) {
+	// Create circuit, and represent it using DSU data structure.
+	circuit := datastructures.NewDSU(len(junctionBoxes))
+	sol := int64(-1)
+
+	for i := range len(shortestDistanceJunctionBoxPairs) {
+		// Join both pairs
+		if circuit.Add(int(shortestDistanceJunctionBoxPairs[i][0]), int(shortestDistanceJunctionBoxPairs[i][1])) {
+			// If this was a successful join, save product of thier x coordinates
+			sol = junctionBoxes[int(shortestDistanceJunctionBoxPairs[i][0])].X * junctionBoxes[int(shortestDistanceJunctionBoxPairs[i][1])].X
+		}
+	}
+
+	return sol, nil
 }
 
 func getTopThreeCircuits(circuitSize map[int]int64) []int64 {
